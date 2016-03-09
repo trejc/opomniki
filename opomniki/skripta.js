@@ -14,7 +14,11 @@ window.addEventListener('load', function() {
 		document.querySelector("#naziv_opomnika").value = "";
 		document.querySelector("#cas_opomnika").value = "";
 		
-		document.querySelector("#opomniki").value += naziv + "\n" + "opomnik cez " + cas + ".\n\"\'"; 
+		document.querySelector("#opomniki").innerHTML += 
+		"<div id=\"opomnik\"> \
+			<p>"+naziv+"</p> \
+			<p>Opomnik čez "+cas+" sekund<p> \
+		</div>\n";
 	}
 
 	//Posodobi opomnike
