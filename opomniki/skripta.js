@@ -6,6 +6,16 @@ window.addEventListener('load', function() {
 		document.querySelector("#uporabnik").innerHTML=uporabnik;
 		document.querySelector(".pokrivalo").style.display="none";
 	}
+	
+	var dodajOpomnik = function(event) {
+		var naziv = document.querySelector("#naziv_opomnika").value;
+		var cas = document.querySelector("#cas_opomnika").value;
+		
+		document.querySelector("#naziv_opomnika").value = "";
+		document.querySelector("#cas_opomnika").value = "";
+		
+		document.querySelector("#opomniki").value += naziv + "\n" + "opomnik cez " + cas + ".\n\"\'"; 
+	}
 
 	//Posodobi opomnike
 	var posodobiOpomnike = function() {
@@ -24,4 +34,5 @@ window.addEventListener('load', function() {
 	setInterval(posodobiOpomnike, 1000);
 	
 	document.querySelector("#prijavniGumb").addEventListener("click", izvediPrijavo);
+	document.querySelector("#dodajGumb").addEventListener("click", dodajOpomnik);
 });
