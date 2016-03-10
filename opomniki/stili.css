@@ -23,7 +23,7 @@ telo {
 	margin: 0px; 
 	margin-bottom: 5px;
 	position: relative; 
-	height: 20px; 
+	height: relative; 
 	width: calc(100% - 20px); 
 	float: left; 
 	padding: 10px;

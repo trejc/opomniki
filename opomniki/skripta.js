@@ -15,10 +15,10 @@ window.addEventListener('load', function() {
 		document.querySelector("#cas_opomnika").value = "";
 		
 		document.querySelector("#opomniki").innerHTML += 
-		"<div id=\"opomnik\"> \
-			<p>"+naziv+"</p> \
-			<p>Opomnik čez "+cas+" sekund<p> \
-		</div>\n";
+		"<div class=\"opomnik rob senca\"> \
+			<p>"+naziv+"<p> \
+			<p>Opomnik čez <span>"+cas+"</span> sekund<p> \
+		</div>";
 	}
 
 	//Posodobi opomnike
@@ -33,6 +33,17 @@ window.addEventListener('load', function() {
 			//TODO: 
 			// - če je čas enak 0, izpiši opozorilo "Opomnik!\n\nZadolžitev NAZIV_OPOMNIK je potekla!"
 			// - sicer zmanjšaj čas za 1 in nastavi novo vrednost v časovniku
+			if(cas === 0) {
+				var naziv = opomnik.querySelector("p").innerHTML;
+				document.querySelector("#opomniki").removeChild(opomnik);
+				document.querySelector("#opomniki").innerHTML +=
+				"<div class=\"opozorilo rob senca\" > \
+					<p>Opomnik!\n\nZadolžitev "+naziv+" je potekla!<p> \
+				</div>";
+			}else {
+				cas = cas - 1;
+				opomnik.querySelector("span").innerHTML = cas;
+			}
 		}
 	}
 	setInterval(posodobiOpomnike, 1000);
